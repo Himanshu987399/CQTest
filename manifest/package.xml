@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>checkUserAssignedPermission</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>accountHandler</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>Accounttrigger</members>
+        <name>ApexTrigger</name>
+    </types>
+    <types>
+        <members>accountDetailsPage</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <version>56.0</version>
+</Package>

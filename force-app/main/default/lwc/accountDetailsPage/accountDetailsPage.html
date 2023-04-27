@@ -1,0 +1,53 @@
+<template>
+	<div if:true={viewForm}>
+		<lightning-card title={title}>
+			<lightning-record-view-form object-api-name={objectApiName} record-id={recordId} onclick={handleOnClick}>
+				<div class="slds-grid slds-wrap slds-gutters padding">
+					<div class="slds-col slds-size_1-of-2">
+						<lightning-output-field field-name="Name"></lightning-output-field>
+						<lightning-output-field field-name="Phone"></lightning-output-field>
+						<lightning-output-field field-name="Website"></lightning-output-field>
+						<lightning-output-field field-name="Industry"></lightning-output-field>
+						<lightning-output-field field-name="Account_Activation_Summary__c"></lightning-output-field>
+						<lightning-output-field field-name="Active__c"></lightning-output-field>
+					</div>
+					<div class="slds-col slds-size_1-of-2">
+						<lightning-output-field field-name="Type"></lightning-output-field>
+						<lightning-output-field field-name="Rating"></lightning-output-field>
+						<lightning-output-field field-name="NumberOfEmployees"></lightning-output-field>
+						<lightning-output-field field-name="BillingCountry"></lightning-output-field>
+						<lightning-output-field field-name="Company_Email__c"></lightning-output-field>
+					</div>
+				</div>
+			</lightning-record-view-form>
+		</lightning-card>
+	</div>
+	<div if:true={Editform}>
+		<lightning-card title={title}>
+			<lightning-record-edit-form object-api-name={objectApiName} record-id={recordId} onsubmit={data}>
+				<div class="slds-grid slds-wrap slds-gutters padding">
+					<div class="slds-col slds-size_1-of-2">
+						<lightning-input-field field-name="Name"></lightning-input-field>
+						<lightning-input-field field-name="Phone"></lightning-input-field>
+						<lightning-input-field field-name="Website"></lightning-input-field>
+						<lightning-input-field field-name="Industry"></lightning-input-field>
+						<lightning-input-field field-name="Account_Activation_Summary__c" required>
+						</lightning-input-field>
+						<lightning-input-field field-name="Active__c"></lightning-input-field>
+					</div>
+					<div class="slds-col slds-size_1-of-2">
+						<lightning-input-field field-name="Type"></lightning-input-field>
+						<lightning-input-field field-name="Rating"></lightning-input-field>
+						<lightning-input-field field-name="NumberOfEmployees"></lightning-input-field>
+						<lightning-input-field field-name="BillingCountry"></lightning-input-field>
+						<lightning-input-field field-name="Company_Email__c"></lightning-input-field>
+					</div>
+				</div>
+				<div class="slds-var-m-top_medium slds-align_absolute-center">
+					<lightning-button variant="brand" type="submit" label="Save">
+					</lightning-button>
+				</div>
+			</lightning-record-edit-form>
+		</lightning-card>
+	</div>
+</template>
