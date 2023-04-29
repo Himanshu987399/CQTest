@@ -9,9 +9,9 @@ export default class AccountDetailsPage extends LightningElement {
     userId = USER_ID;
     viewForm = true;
     Editform = false;
-    permissionisAvailable = false;
+    permissionisAvailable = 'false';
     connectedCallback() {
-        this.title = this.objectApiName + 'View Form';
+        this.title = this.objectApiName + ' View Form';
         checkpermission({ userId: this.userId }).then((result) => {
             this.permissionisAvailable = JSON.stringify(result);
         }).catch((error) => {
@@ -25,10 +25,10 @@ export default class AccountDetailsPage extends LightningElement {
         })
     }
     handleOnClick() {
-        if (this.permissionisAvailable == false) {
+        if (this.permissionisAvailable == 'false') {
             this.dispatchEvent(
                 new ShowToastEvent({
-                    title: 'Error updating record',
+                    title: 'Error',
                     message: 'User donnot have edit and create permission',
                     variant: 'error'
                 })
@@ -40,10 +40,24 @@ export default class AccountDetailsPage extends LightningElement {
         }
 
     }
-    data(event) {
+    handleSubmit(event) {
         event.preventDefault();
         const fields = event.detail.fields;
-        console.log('OUTPUT : ', JSON.stringify(fields));
-
+        this.template.querySelector('lightning-record-edit-form').submit(fields);
+    }
+    handleSuccess() {
+        this.dispatchEvent(
+            new ShowToastEvent({
+                title: 'Update Record',
+                message: 'Record update suceesfully.',
+                variant: 'success'
+            })
+        );
+        
+    }
+    handleCancelClick(){
+        this.title = this.objectApiName + ' View Form';
+        this.Editform = false;
+        this.viewForm = true;
     }
 }
