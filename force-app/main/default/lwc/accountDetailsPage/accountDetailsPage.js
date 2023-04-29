@@ -53,7 +53,9 @@ export default class AccountDetailsPage extends LightningElement {
                 variant: 'success'
             })
         );
-        
+        this.title = this.objectApiName + ' View Form';
+        this.Editform = false;
+        this.viewForm = true;
     }
     handleCancelClick(){
         this.title = this.objectApiName + ' View Form';
