@@ -24,7 +24,8 @@
 	</div>
 	<div if:true={Editform}>
 		<lightning-card title={title}>
-			<lightning-record-edit-form object-api-name={objectApiName} record-id={recordId} onsubmit={data}>
+			<lightning-record-edit-form object-api-name={objectApiName} record-id={recordId} onsubmit={handleSubmit}
+				onsuccess={handleSuccess}>
 				<div class="slds-grid slds-wrap slds-gutters padding">
 					<div class="slds-col slds-size_1-of-2">
 						<lightning-input-field field-name="Name"></lightning-input-field>
@@ -43,8 +44,10 @@
 						<lightning-input-field field-name="Company_Email__c"></lightning-input-field>
 					</div>
 				</div>
-				<div class="slds-var-m-top_medium slds-align_absolute-center">
-					<lightning-button variant="brand" type="submit" label="Save">
+				<div class="slds-m-top_medium slds-text-align_center">
+					<lightning-button label="Cancel" variant="neutral" onclick={handleCancelClick}>
+					</lightning-button>
+					<lightning-button label="Submit" variant="brand" type="submit" >
 					</lightning-button>
 				</div>
 			</lightning-record-edit-form>
